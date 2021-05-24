@@ -41,6 +41,7 @@ puts ""
 player2.display_score
 puts ""
 puts ""
+while true
 menu_input = prompt.select("What would you like to do?") do |menu|
     menu.choice name: "Enter points for #{player1.name}", value: 1
     menu.choice name: "Enter spent command points for #{player1.name}", value: 2
@@ -51,10 +52,56 @@ end
 case(menu_input)
     when 1
         puts "How many primary points did #{player1.name} score this turn: "
-        player1_prim_input = gets.chomp.to_i
-        player1.prim_points = player1.prim_points + player1_prim_input
+        player1.prim_points = gets.chomp.to_i + player1.prim_points
         puts "How many secondary points did #{player1.name} score this turn: "
-    end
+        player1.sec_points = gets.chomp.to_i + player1.sec_points
+        system "clear"
+        app_title
+        player1.display_score
+        puts ""
+        puts ""
+        player2.display_score
+        puts ""
+        puts ""
     when 2
-        
+        puts "How many command points did #{player1.name} spend: "
+        player1.cmd_points = player1.cmd_points - gets.chomp.to_i
+        system "clear"
+        app_title
+        player1.display_score
+        puts ""
+        puts ""
+        player2.display_score
+        puts ""
+        puts ""
+    when 3
+        puts "How many primary points did #{player2.name} score this turn: "
+        player2.prim_points = gets.chomp.to_i + player2.prim_points
+        puts "How many secondary points did #{player2.name} score this turn: "
+        player2.sec_points = gets.chomp.to_i + player2.sec_points
+        system "clear"
+        app_title
+        player1.display_score
+        puts ""
+        puts ""
+        player2.display_score
+        puts ""
+        puts ""
+    when 4
+        puts "How many command points did #{player2.name} spend: "
+        player2.cmd_points = player2.cmd_points - gets.chomp.to_i
+        system "clear"
+        app_title
+        player1.display_score
+        puts ""
+        puts ""
+        player2.display_score
+        puts ""
+        puts ""
+    when 5
+        break
     end
+end
+
+system "clear"
+puts "Goodbye"
