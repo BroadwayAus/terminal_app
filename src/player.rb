@@ -1,14 +1,13 @@
 class Player
+    attr_reader :name, :army
+    attr_accessor :prim_points, :sec_points, :cmd_points
+    
     def initialize(name, army, prim_points, sec_points, cmd_points)
         @name = name.capitalize
         @army = army.capitalize
         @prim_points = prim_points.to_i
         @sec_points = sec_points.to_i
         @cmd_points = cmd_points.to_i
-    end
-
-    def name
-        @name
     end
 
     def display_score
