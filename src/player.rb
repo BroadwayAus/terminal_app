@@ -1,7 +1,5 @@
 class Player
-    attr_reader :name, :army
-    attr_accessor :prim_points, :sec_points, :cmd_points
-    
+
     def initialize(name, army, prim_points, sec_points, cmd_points)
         @name = name.capitalize
         @army = army.capitalize
@@ -11,13 +9,15 @@ class Player
     end
 
     def display_score
-        puts "█▀█ █░░ ▄▀█ █▄█ █▀▀ █▀█".light_cyan
-        puts "█▀▀ █▄▄ █▀█ ░█░ ██▄ █▀▄".light_cyan
+        puts "      █▀█ █░░ ▄▀█ █▄█ █▀▀ █▀█".light_cyan
+        puts "      █▀▀ █▄▄ █▀█ ░█░ ██▄ █▀▄".light_cyan
         puts "#{@name} - Playing #{@army}.".light_cyan
         puts "  Primary points: #{@prim_points}.".light_cyan
         puts "  Secondary points: #{@sec_points}.".light_cyan
         puts "  Command points: #{@cmd_points}.".light_cyan
         puts "      Total victory points: #{@prim_points + @sec_points}.".light_cyan 
     end
-end
 
+    attr_reader :name, :army
+    attr_accessor :prim_points, :sec_points, :cmd_points
+end
