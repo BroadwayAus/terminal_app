@@ -9,7 +9,6 @@ class Player
     end
 
     def display_score
-        
         puts "      █▀█ █░░ ▄▀█ █▄█ █▀▀ █▀█".light_cyan
         puts "      █▀▀ █▄▄ █▀█ ░█░ ██▄ █▀▄".light_cyan
         puts "#{@name} - Playing #{@army}.".light_cyan
