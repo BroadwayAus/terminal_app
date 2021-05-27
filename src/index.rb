@@ -34,14 +34,15 @@ player2.display_score
 puts ""
 puts ""
 while true
-menu_input = prompt.select("What would you like to do?") do |menu|
+main_menu_input = prompt.select("What would you like to do?") do |menu|
     menu.choice name: "Enter points for #{player1.name}", value: 1
     menu.choice name: "Enter spent command points for #{player1.name}", value: 2
     menu.choice name: "Enter points for #{player2.name}", value: 3
     menu.choice name: "Enter spent command points for #{player2.name}", value: 4
-    menu.choice name: "Exit", value: 5
+    menu.choice name: "Enter command/victory points manually", value 5
+    menu.choice name: "Exit", value: 6
 end
-case(menu_input)
+case(main_menu_input)
     when 1
         puts "How many primary points did #{player1.name} score this turn: "
         player1.prim_points = gets.chomp.to_i + player1.prim_points
@@ -91,6 +92,17 @@ case(menu_input)
         puts ""
         puts ""
     when 5
+        second_menu_input = prompt.select("What points would you like to modify?") do |menu|
+            menu.choice name: "Modify victory points for #{player1.name}", value: 1
+            menu.choice name: "Modify command points for #{player1.name}", value: 2
+            menu.choice name: "Modify victory points for #{player2.name}", value: 3
+            menu.choice name: "Modify command points for #{player2.name}", value: 4
+    end
+        case(main_menu_input)
+            when 1
+            end
+        end
+    when 6
         break
     end
 end
